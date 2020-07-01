@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Log";
+}
+@using Twilio;
+@using System.Configuration;
+@{
+    // Set our AccountSid and AuthToken
+    string sid =  ConfigurationManager.AppSettings["TwilioAccountSid"]; ;
+    string token = ConfigurationManager.AppSettings["TwilioAuthToken"]; ;
+
+    // Instantiate a new Twilio Rest Client
+    var client = new TwilioRestClient(sid, token);
+
+    // Get Recent Calls
+    var calls = client.ListCalls( new CallListRequest() { Count = 1000 });
+
+    if (calls.RestException != null)
+    {
+        Response.Write(string.Format("Error: {0}", calls.RestException.Message));
+        Response.End();
+    }
+}
+<div style="background-color:moccasin">
+    <h1>Call Log</h1>
+    @foreach (var call in calls.Calls)
+    {
+        <p>Call from @call.From to @call.To at @call.StartTime of length @call.Duration.  Sid @call.Sid. Parent @call.ParentCallSid </p>
+        <div>@{Response.Write(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(call));}</div>
+    }
+
+</div>
