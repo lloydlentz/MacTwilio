@@ -6,6 +6,7 @@ using Twilio;
 
 namespace ClientQuickstart.Controllers
 {
+  [AllowCrossSite]
   public class TokenController : Controller
   {
         // GET: /token
