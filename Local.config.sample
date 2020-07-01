@@ -1,0 +1,8 @@
+﻿<?xml version="1.0"?>
+<appSettings>
+  <add key="TwilioAccountSid" value="XXXYOUR SIDXXXX" />
+  <add key="TwilioAuthToken" value="XXXYOUR AUTH TOKENXXXX" />
+  <add key="TwilioTwimlAppSid" value="XXXYOURAPPSIDXXXX" />
+  <add key="TwilioCallerId" value="+16515550000" />
+  <add key="adv" value="Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=our.oracle.db.macalester.edu)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=prodordev)));User Id=scott;Password=tiger;"/>  
+</appSettings>
